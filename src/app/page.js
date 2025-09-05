@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AffectionMeter from "@/components/AffectionMeter";
+// import AffectionMeter from "@/components/AffectionMeter";
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
@@ -16,7 +16,6 @@ export default function Home() {
   }, [messages]);
   const sendMessage = async () => {
     if (!input.trim()) return;
-    
 
     const userMsg = { role: "user", text: input };
     setMessages((prev) => [...prev, userMsg]);
@@ -33,8 +32,6 @@ export default function Home() {
       const data = await res.json();
       const botMsg = { role: "bot", text: data.reply };
       setMessages((prev) => [...prev, botMsg]);
-
-      
     } catch (err) {
       console.error(err);
     } finally {
@@ -48,9 +45,8 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6 tracking-wide">
         Ani <span className="text-pink-400">💖</span> Chat
       </h1>
-      
 
-      <AffectionMeter email={email} refreshKey={messages.length} />
+      {/* <AffectionMeter email={email} refreshKey={messages.length} /> */}
       {/* Chat Window */}
       {/* Chat Window */}
       {messages.length !== 0 ? (
